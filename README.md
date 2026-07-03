@@ -61,26 +61,7 @@ This observation inspired the development of Distribo—a web-based Distribution
 - Mongoose
 - JWT Authentication
 
-## 🎥 Project Workflow
 
-The following workflow demonstrates how **Distribo** streamlines the complete distribution process, from user authentication to business reporting.
-
-1. **Register** – Create a new distributor account to access the platform.
-2. **Login** – Securely sign in to the system.
-3. **Dashboard** – View an overview of inventory, sales, and business activities.
-4. **Inventory Setup** – Add products with their details and initial stock.
-5. **Add Stock** – Record newly received stock in the warehouse.
-6. **Dispatch Stock** – Assign and dispatch products to sales executives.
-7. **Warehouse Stock Reduced** – The warehouse inventory is automatically updated after dispatch.
-8. **Sales Executive Sells Products** – Sales executives deliver and sell products to retailers.
-9. **Return Entry** – Record unsold or returned products received back into the warehouse.
-10. **Sales Calculation** – Calculate the total value of products sold.
-11. **Revenue Calculation** – Determine the total revenue generated from sales.
-12. **Profit Calculation** – Calculate business profit based on purchase and selling prices.
-13. **Generate Reports** – View comprehensive reports for inventory, sales, revenue, and profit.
-14. **Logout** – Securely end the current user session.
-
-📹 **Watch the complete workflow demonstration below:**
 
 ## 🎥 Project Workflow
 
