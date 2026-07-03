@@ -2,7 +2,8 @@ const express = require("express");
 const protect = require("../middleware/authMiddleware");
 const {
     getProfile,
-    changePassword
+    changePassword,
+    deleteAccount
 } = require("../controllers/profileController");
 
 const router = express.Router();
@@ -20,5 +21,7 @@ router.put(
     protect,
     changePassword
 );
+
+router.delete("/delete-account", protect, deleteAccount);
 
 module.exports = router;

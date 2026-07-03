@@ -35,3 +35,31 @@ export const changePassword = async (
     return response.data;
 
 };
+
+export const deleteAccount = async (password, token) => {
+
+    const response = await api.delete(
+
+        "/profile/delete-account",
+
+        {
+
+            data: {
+
+                password
+
+            },
+
+            headers: {
+
+                Authorization: `Bearer ${token}`
+
+            }
+
+        }
+
+    );
+
+    return response.data;
+
+};

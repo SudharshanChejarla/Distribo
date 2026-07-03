@@ -6,13 +6,18 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import { Slide } from "react-toastify";
+import StartupLoader from "./components/StartupLoader";
 
 
 ReactDOM.createRoot(
   document.getElementById("root")
 ).render(
   <BrowserRouter>
-    <App />
+
+    <StartupLoader>
+      <App />
+    </StartupLoader>
+
     <ToastContainer
       transition={Slide}
       position="top-right"
@@ -23,5 +28,6 @@ ReactDOM.createRoot(
       pauseOnHover
       draggable
     />
+    
   </BrowserRouter>
 );

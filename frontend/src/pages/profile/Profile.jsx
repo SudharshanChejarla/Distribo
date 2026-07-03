@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import {
     getProfile,
-    changePassword
+    changePassword,
+    deleteAccount
 } from "../../services/profileService";
+
+import { useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
@@ -22,6 +25,14 @@ const Profile = () => {
         confirmPassword: ""
 
     });
+
+    const navigate = useNavigate();
+
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+    const [deletePassword, setDeletePassword] = useState("");
+
+    const [deleting, setDeleting] = useState(false);
 
     // Read form values
     const handleChange = (event) => {
@@ -102,6 +113,52 @@ const Profile = () => {
                 "Something went wrong."
 
             );
+
+        }
+
+    };
+
+    const handleDeleteAccount = async () => {
+
+        if (!deletePassword.trim()) {
+
+            toast.error("Please enter your password.");
+
+            return;
+
+        }
+
+        try {
+
+            setDeleting(true);
+
+            const token = localStorage.getItem("token");
+
+            const response = await deleteAccount(deletePassword, token);
+
+            toast.success(response.message);
+
+            localStorage.clear();
+
+            navigate("/");
+
+        }
+
+        catch (error) {
+
+            toast.error(
+
+                error.response?.data?.message ||
+
+                "Unable to delete account."
+
+            );
+
+        }
+
+        finally {
+
+            setDeleting(false);
 
         }
 
@@ -312,6 +369,176 @@ const Profile = () => {
                 </button>
 
             </form>
+
+            <div className="bg-white rounded-2xl shadow-md border border-red-200 p-8 mt-8">
+
+                <h2 className="text-2xl font-semibold text-red-600">
+
+                    Danger Zone
+
+                </h2>
+
+                <p className="text-gray-600 mt-3">
+
+                    Deleting your account will permanently remove:
+
+                </p>
+
+                <ul className="list-disc ml-6 mt-4 text-gray-700 space-y-2">
+
+                    <li>Profile</li>
+
+                    <li>Products</li>
+
+                    <li>Stock Entries</li>
+
+                    <li>Sales Executives</li>
+
+                    <li>Dispatch Records</li>
+
+                    <li>Return Records</li>
+
+                </ul>
+
+                <p className="text-red-600 font-medium mt-5">
+
+                    This action cannot be undone.
+
+                </p>
+
+                <button
+
+                    onClick={() => setShowDeleteModal(true)}
+
+                    className="
+        mt-6
+        bg-red-600
+        hover:bg-red-700
+        text-white
+        px-6
+        py-3
+        rounded-xl
+        transition
+        "
+
+                >
+
+                    Delete Account
+
+                </button>
+
+            </div>
+
+            {
+                showDeleteModal && (
+
+                    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+
+                        <div className="bg-white rounded-2xl p-8 w-[90%] max-w-md">
+
+                            <h2 className="text-2xl font-bold text-red-600">
+
+                                Delete Account
+
+                            </h2>
+
+                            <p className="text-gray-600 mt-4">
+
+                                This action is permanent.
+
+                                <br />
+
+                                Enter your password to continue.
+
+                            </p>
+
+                            <input
+
+                                type="password"
+
+                                placeholder="Password"
+
+                                value={deletePassword}
+
+                                onChange={(e) => setDeletePassword(e.target.value)}
+
+                                className="
+            mt-6
+            w-full
+            px-4
+            py-3
+            rounded-xl
+            border
+            border-gray-300
+            focus:ring-2
+            focus:ring-red-500
+            outline-none
+            "
+
+                            />
+
+                            <div className="flex justify-end gap-3 mt-8">
+
+                                <button
+
+                                    onClick={() => {
+
+                                        setShowDeleteModal(false);
+
+                                        setDeletePassword("");
+
+                                    }}
+
+                                    className="px-5 py-2 rounded-xl border"
+
+                                >
+
+                                    Cancel
+
+                                </button>
+
+                                <button
+
+                                    onClick={handleDeleteAccount}
+
+                                    disabled={deleting}
+
+                                    className="
+                bg-red-600
+                hover:bg-red-700
+                text-white
+                px-5
+                py-2
+                rounded-xl
+                disabled:opacity-50
+                "
+
+                                >
+
+                                    {
+
+                                        deleting
+
+                                            ?
+
+                                            "Deleting..."
+
+                                            :
+
+                                            "Delete Account"
+
+                                    }
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                )
+            }
 
         </div>
 
