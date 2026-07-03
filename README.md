@@ -1,6 +1,7 @@
 # Distribo - Distribution Operations Platform
 
 A full-stack MERN application designed to simplify distribution operations for small businesses.
+
 [🚀 Live Demo](https://distribo-live.vercel.app)
 
 ## Real World Problem
@@ -15,12 +16,14 @@ The distributor managed daily operations manually using notebooks, paper invoice
 This observation inspired the development of Distribo—a web-based Distribution Management System that digitizes these day-to-day operations and provides a faster, more organized, and reliable way to manage inventory and distribution.
 
 ### Problems Identified
--📦 Manual inventory and stock management
--🧮 Time-consuming sales and profit calculations
--🚚 No centralized dispatch tracking
--↩️ Difficulty managing returned products
--📊 Lack of business reports and analytics
--🗂️ Hard to maintain and retrieve historical records
+
+- 📦 Manual inventory and stock management
+- 🧮 Time-consuming sales and profit calculations
+- 🚚 No centralized dispatch tracking
+- ↩️ Difficulty managing returned products
+- 📊 Lack of business reports and analytics
+- 🗂️ Hard to maintain and retrieve historical records
+
 
 ## How Distribo Solves These Problems
 - Manage products and inventory
@@ -57,6 +60,48 @@ This observation inspired the development of Distribo—a web-based Distribution
 - MongoDB Atlas
 - Mongoose
 - JWT Authentication
+
+## 🎥 Project Workflow
+
+The following workflow demonstrates how **Distribo** streamlines the complete distribution process, from user authentication to business reporting.
+
+1. **Register** – Create a new distributor account to access the platform.
+2. **Login** – Securely sign in to the system.
+3. **Dashboard** – View an overview of inventory, sales, and business activities.
+4. **Inventory Setup** – Add products with their details and initial stock.
+5. **Add Stock** – Record newly received stock in the warehouse.
+6. **Dispatch Stock** – Assign and dispatch products to sales executives.
+7. **Warehouse Stock Reduced** – The warehouse inventory is automatically updated after dispatch.
+8. **Sales Executive Sells Products** – Sales executives deliver and sell products to retailers.
+9. **Return Entry** – Record unsold or returned products received back into the warehouse.
+10. **Sales Calculation** – Calculate the total value of products sold.
+11. **Revenue Calculation** – Determine the total revenue generated from sales.
+12. **Profit Calculation** – Calculate business profit based on purchase and selling prices.
+13. **Generate Reports** – View comprehensive reports for inventory, sales, revenue, and profit.
+14. **Logout** – Securely end the current user session.
+
+📹 **Watch the complete workflow demonstration below:**
+
+## 🎥 Project Workflow
+
+The following workflow demonstrates how **Distribo** streamlines the complete distribution process, from user authentication to business reporting.
+
+1. **Register** – Create a new distributor account to access the platform.
+2. **Login** – Securely sign in to the system.
+3. **Dashboard** – View an overview of inventory, sales, and business activities.
+4. **Inventory Setup** – Add products with their details and initial stock.
+5. **Add Stock** – Record newly received stock in the warehouse.
+6. **Dispatch Stock** – Assign and dispatch products to sales executives.
+7. **Warehouse Stock Reduced** – The warehouse inventory is automatically updated after dispatch.
+8. **Sales Executive Sells Products** – Sales executives deliver and sell products to retailers.
+9. **Return Entry** – Record unsold or returned products received back into the warehouse.
+10. **Sales Calculation** – Calculate the total value of products sold.
+11. **Revenue Calculation** – Determine the total revenue generated from sales.
+12. **Profit Calculation** – Calculate business profit based on purchase and selling prices.
+13. **Generate Reports** – View comprehensive reports for inventory, sales, revenue, and profit.
+14. **Logout** – Securely end the current user session.
+
+📹 **Project Demo:** [Watch the complete workflow video](https://youtu.be/eBm4xXzYQ4I)
 
 ## Installation
 
@@ -139,15 +184,9 @@ Distribo
 │
 └── README.md
 ```
-### Architecture Overview
 
-- **Frontend:** Built with React and Tailwind CSS using a feature-based folder structure.
-- **API Layer:** Axios service modules handle communication with the backend.
-- **Backend:** Express.js exposes RESTful APIs and manages business logic.
-- **Database:** MongoDB stores users, products, stock entries, sales executives, dispatch records, returns, and reports.
-- **Authentication:** JWT-based authentication protects all secured endpoints.
 
-  
+
 
 ## Future Improvements
 
